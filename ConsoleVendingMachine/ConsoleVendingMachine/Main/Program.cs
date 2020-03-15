@@ -10,6 +10,9 @@ namespace ConsoleVendingMachine
     {
         static void Main(string[] args)
         {
+            FileUtility.Load();
+            MachineCore core = new MachineCore();
+            core.Run();
         }
     }
 }
