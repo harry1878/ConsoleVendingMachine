@@ -18,9 +18,10 @@ public class FileUtility
         using (StreamWriter sw = new StreamWriter(fullPath, false))
         {
             sw.WriteLine($"Money={money.ToString()}");
-            foreach (string i in Player.Get.inv)
+            foreach(KeyValuePair<string, int> v in data)
             {
-                sw.Write($"={i}");
+                sw.WriteLine($"{v.Key}={Value}");
+                //sw.WriteLine(string.Format("{0}={1}, v.Key, v.Value));
             }
         };
 
@@ -39,12 +40,14 @@ public class FileUtility
             //Money
             string[] split = sr.ReadLine().Split('=');
             Player.Get.money = int.Parse(split[1]);
+            Player.Get.inv.Clear();
 
             //beverage
             string line = null;
             while(!string.IsNullOrEmpty((line = sr.ReadLine())))
             {
-
+                string[] s = line.Split('=');
+                Player.Get.inv.Add()
             }
             
         }
